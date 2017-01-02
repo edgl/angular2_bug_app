@@ -8,15 +8,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+//modules
 var core_1 = require('@angular/core');
 var shared_module_1 = require('../shared/shared.module');
+// Component
+var bug_list_component_1 = require('./bug-list/bug-list.component');
 var BugModule = (function () {
     function BugModule() {
     }
     BugModule = __decorate([
         core_1.NgModule({
             imports: [shared_module_1.SharedModule],
-            declarations: [],
+            declarations: [bug_list_component_1.BugListComponent],
             exports: [],
             providers: []
         }), 
