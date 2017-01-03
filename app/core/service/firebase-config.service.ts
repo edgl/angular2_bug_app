@@ -9,7 +9,7 @@ import { FIREBASE_CONFIG } from '../constant/constants';
 
 export class FirebaseConfigService {
 
-    database: firebase.database.Database;
+    private _database: firebase.database.Database;
 
     constructor() {
         this.configureApp();
@@ -21,6 +21,10 @@ export class FirebaseConfigService {
     }
 
     configureDatabase() {
-        this.database = firebase.database();
+        this._database = firebase.database();
+    }
+
+    public get database() {
+        return this._database;
     }
 }

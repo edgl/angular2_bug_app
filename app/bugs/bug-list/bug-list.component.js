@@ -13,17 +13,22 @@ var bug_service_1 = require('../service/bug.service');
 var BugListComponent = (function () {
     function BugListComponent(bugService) {
         this.bugService = bugService;
+        this.bugList = [];
     }
     BugListComponent.prototype.ngOnInit = function () {
         this.getAddedBugs();
     };
     BugListComponent.prototype.getAddedBugs = function () {
+        var _this = this;
         this.bugService.getAddedBugs()
             .subscribe(function (bug) {
-            console.log(bug);
+            _this.bugList.push(bug);
+            console.log(_this.bugList); // TODO: Remove
         }, function (err) {
             console.error("Unable to get added bug - ", err);
         });
+    };
+    BugListComponent.prototype.addBug = function () {
     };
     BugListComponent = __decorate([
         core_1.Component({

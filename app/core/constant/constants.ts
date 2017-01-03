@@ -3,5 +3,5 @@ export const FIREBASE_CONFIG = {
     authDomain: "bugtracker-e9a8c.firebaseapp.com",
     databaseURL: "https://bugtracker-e9a8c.firebaseio.com",
     storageBucket: "bugtracker-e9a8c.appspot.com",
-    messagingSenderId: "1070998503293"
+    messagingSenderId: "1070998503293" 
   };
