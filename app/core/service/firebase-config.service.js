@@ -8,27 +8,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-//modules
 var core_1 = require('@angular/core');
-var shared_module_1 = require('../shared/shared.module');
-var bug_routing_module_1 = require('./bug-routing.module');
-// Service
-var bug_service_1 = require('./service/bug.service');
-// Component
-var bug_list_component_1 = require('./bug-list/bug-list.component');
-var BugModule = (function () {
-    function BugModule() {
+var firebase = require('firebase');
+require('firebase/database');
+var constants_1 = require('../constant/constants');
+var FirebaseConfigService = (function () {
+    function FirebaseConfigService() {
+        this.configureApp();
+        this.configureDatabase();
     }
-    BugModule = __decorate([
-        core_1.NgModule({
-            imports: [shared_module_1.SharedModule, bug_routing_module_1.BugRoutingModule],
-            declarations: [bug_list_component_1.BugListComponent],
-            exports: [],
-            providers: [bug_service_1.BugService]
-        }), 
+    FirebaseConfigService.prototype.configureApp = function () {
+        firebase.initializeApp(constants_1.FIREBASE_CONFIG);
+    };
+    FirebaseConfigService.prototype.configureDatabase = function () {
+        this.database = firebase.database();
+    };
+    FirebaseConfigService = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], BugModule);
-    return BugModule;
+    ], FirebaseConfigService);
+    return FirebaseConfigService;
 }());
-exports.BugModule = BugModule;
-//# sourceMappingURL=bug.module.js.map
+exports.FirebaseConfigService = FirebaseConfigService;
+//# sourceMappingURL=firebase-config.service.js.map
